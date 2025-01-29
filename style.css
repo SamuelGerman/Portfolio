@@ -1,0 +1,172 @@
+:root {
+    --primary: #2b2d42; /* Azul escuro sofisticado */
+    --secondary: #ef233c; /* Vermelho energético */
+    --accent: #8d99ae; /* Cinza azulado moderno */
+    --background: #f8f9fa;
+    --text: #2b2d42;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Reset Moderno */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background);
+    overflow-x: hidden;
+  }
+  
+  /* Header Heroico */
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, #1a1b2f 100%);
+    color: white;
+    padding: 8rem 0 4rem;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    margin-bottom: -5rem;
+  }
+  
+  header h1 {
+    font-size: 3.5rem;
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  /* Seções Dinâmicas */
+  section {
+    padding: 5rem 0;
+    transition: var(--transition);
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  /* Cards Hover 3D */
+  .projeto, .experiencia-item {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform-style: preserve-3d;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .projeto:hover, .experiencia-item:hover {
+    transform: translateY(-5px) rotateX(1deg) rotateY(-1deg);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+  }
+  
+  /* Habilidades Gamificadas */
+  #habilidades ul {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  #habilidades li {
+    background: var(--secondary);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #habilidades li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: var(--transition);
+  }
+  
+  #habilidades li:hover::after {
+    left: 100%;
+  }
+  
+  /* Timeline Experiência */
+  .experiencia-item {
+    position: relative;
+    padding-left: 3rem;
+    border-left: 3px solid var(--secondary);
+  }
+  
+  .experiencia-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--background);
+    border: 3px solid var(--secondary);
+    border-radius: 50%;
+  }
+  
+  /* Botones Interativos */
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: var(--transition);
+  }
+  
+  .cta-button:hover {
+    gap: 1rem;
+    background: var(--secondary);
+    transform: scale(1.05);
+  }
+  
+  /* Dark Mode */
+  .dark-mode {
+    --background: #1a1a1a;
+    --text: #ffffff;
+    --primary: #3a86ff;
+    --secondary: #8338ec;
+  }
+  
+  .dark-mode .projeto, .dark-mode .experiencia-item {
+    background: #2d2d2d;
+    border-color: #404040;
+  }
+  
+  /* Animação Matrix para Skills */
+  @keyframes matrix {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .matrix-mode #habilidades li {
+    background: linear-gradient(45deg, #3a86ff, #8338ec, #ff006e);
+    background-size: 200% 200%;
+    animation: matrix 3s ease infinite;
+  }
+  
